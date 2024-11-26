@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/user/screens/login_screen.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -108,7 +109,7 @@ class _SettingsPageState extends State<Settings> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Settings'),
-        backgroundColor: const Color.fromARGB(206, 163, 165, 38),
+        backgroundColor: Color.fromARGB(255, 174, 177, 138),
       ),
       body: ListView(
         children: [
@@ -160,6 +161,19 @@ class _SettingsPageState extends State<Settings> {
             title: const Text('Service Coverage'),
             subtitle: const Text('View available service areas'),
             onTap: _showServiceCoverage,
+          ),
+          const Divider(),
+
+          //logout
+          ListTile(
+            leading: const Icon(Icons.logout, color: Colors.black),
+            title: const Text('Logout'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LoginScreen()),
+              );
+            },
           ),
           const Divider(),
         ],

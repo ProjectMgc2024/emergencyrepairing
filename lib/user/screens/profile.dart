@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class ProfileScreen extends StatefulWidget {
+class ProfileScree extends StatefulWidget {
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _ProfileScreenState extends State<ProfileScree> {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController phoneNumberController = TextEditingController();
@@ -55,21 +55,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
     });
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text('Changes canceled.'),
-      backgroundColor: Colors.grey,
+      backgroundColor: const Color.fromARGB(255, 234, 206, 206),
     ));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0, // Remove shadow for a smooth appearance
-        backgroundColor:
-            Color.fromARGB(255, 198, 203, 108), // Light grey background color
-      ),
       body: Container(
         color:
-            Color.fromARGB(255, 198, 203, 108), // Light grey background color
+            const Color.fromARGB(255, 200, 190, 190), // Light background color
+        // Light grey background color
 
         height:
             double.infinity, // Ensures the background covers the full height

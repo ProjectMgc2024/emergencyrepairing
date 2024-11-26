@@ -7,6 +7,41 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:
+          Color.fromARGB(255, 237, 244, 171), // Light grey background color
+
+      appBar: PreferredSize(
+        preferredSize:
+            Size.fromHeight(kToolbarHeight), // Set the height of the AppBar
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color.fromARGB(255, 234, 205, 20),
+                const Color.fromARGB(255, 25, 196, 156)
+              ], // Gradient colors
+              begin: Alignment.topLeft, // Start of the gradient
+              end: Alignment.bottomRight, // End of the gradient
+            ),
+          ),
+          child: AppBar(
+            title: Text(
+              'Welcome to Fuel & Fix Assist System',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: const Color.fromARGB(
+                    255, 0, 0, 0), // Set text color to white for contrast
+                fontSize: 20,
+                letterSpacing: 1,
+              ),
+            ),
+            centerTitle: true,
+            backgroundColor:
+                Colors.transparent, // Make AppBar background transparent
+            elevation: 10, // Remove shadow to show the gradient properly
+          ),
+        ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -20,8 +55,8 @@ class HomeScreen extends StatelessWidget {
                   title: 'Fuel',
                   icon: Icons.local_gas_station,
                   colors: [
-                    Color.fromARGB(255, 177, 64, 23),
-                    Color.fromARGB(255, 212, 195, 43)
+                    Color.fromARGB(255, 228, 76, 21),
+                    Color.fromARGB(255, 180, 166, 38)
                   ],
                   onTap: () {
                     Navigator.push(
@@ -35,8 +70,8 @@ class HomeScreen extends StatelessWidget {
                   title: 'Repair Services',
                   icon: Icons.build,
                   colors: [
-                    Color.fromARGB(255, 223, 52, 9),
-                    Color.fromARGB(197, 8, 12, 9)
+                    Color.fromARGB(255, 221, 65, 26),
+                    Color.fromARGB(197, 24, 41, 28)
                   ],
                   onTap: () {
                     Navigator.push(
@@ -58,8 +93,8 @@ class HomeScreen extends StatelessWidget {
                   title: 'Tow Services',
                   icon: Icons.drive_eta,
                   colors: [
-                    Color.fromARGB(255, 54, 9, 52),
-                    Color.fromARGB(255, 133, 189, 41)
+                    Color.fromARGB(255, 102, 172, 97),
+                    Color.fromARGB(255, 12, 19, 2)
                   ],
                   onTap: () {
                     Navigator.push(

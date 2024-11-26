@@ -64,13 +64,13 @@ Future<List<ServiceHistory>> fetchUserHistory() async {
   ];
 }
 
-class UserHistoryPage extends StatelessWidget {
+class UserHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('User History'),
-        backgroundColor: const Color.fromARGB(206, 163, 165, 38),
+        backgroundColor: Color.fromARGB(255, 174, 177, 138),
       ),
       body: Container(
         padding: const EdgeInsets.all(16.0),
@@ -257,6 +257,6 @@ class UserHistoryPage extends StatelessWidget {
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: UserHistoryPage(), // Updated home to the UserHistoryPage
+    home: UserHistory(), // Updated home to the UserHistoryPage
   ));
 }

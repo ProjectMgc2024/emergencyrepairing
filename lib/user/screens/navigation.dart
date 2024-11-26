@@ -19,154 +19,73 @@ class _NavigationState extends State<Navigation> {
   // List of pages to navigate
   final List<Widget> _pages = [
     HomeScreen(),
-    ProfilePage(),
-    const SettingsPage(),
+    ProfileScree(),
+    Settings(),
+    UserHistory(),
+    AboutHelp(), // About Help screen added here
   ];
 
   // Function to navigate to a selected page
   void _onSelectPage(int index) {
     setState(() {
-      _selectedPageIndex = index;
+      _selectedPageIndex = index; // Simply update the selected page index
     });
-    Navigator.pop(context); // Close the drawer after selection
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Welcome to Fuel & Fix App',
-          style: TextStyle(
-              fontWeight: FontWeight.bold, // Makes the title bold
-              fontSize: 24, // Custom font size
-              letterSpacing: 1.2, // Adds space between the letters
-              fontFamily: 'Roboto',
-              color: Color.fromARGB(255, 249, 239,
-                  235) // Sets a custom font family (you can choose your own)
-              ),
-        ),
-
-        backgroundColor: Colors.transparent, // Makes background transparent
-        centerTitle: true,
-
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Color.fromARGB(
-                    255, 255, 174, 0), // first color (example yellow)
-
-                Color.fromARGB(255, 135, 18, 31), // second color
-              ],
-            ),
+      body: _pages[_selectedPageIndex], // Displays selected page
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedPageIndex,
+        onTap: _onSelectPage,
+        iconSize: 25,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
           ),
-        ), // This centers the title within the app bar
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.menu),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-            );
-          },
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.history),
+            label: 'History',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.help),
+            label: 'About/Help',
+          ),
+        ],
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.orange,
+        unselectedItemColor: Colors.grey,
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            // Drawer Header with Avatar
-            const UserAccountsDrawerHeader(
-              accountName: Text('User Name', style: TextStyle(fontSize: 18)),
-              accountEmail: Text('user@example.com'),
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage(
-                    'assets/images/avatar.png'), // Use your image here
-              ),
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 173, 167, 117),
-              ),
-            ),
-            // Drawer Menu Items
-            ListTile(
-              leading: const Icon(Icons.home, color: Colors.black),
-              title: const Text('Home'),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Navigation()));
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.person, color: Colors.black),
-              title: const Text('Profile'),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ProfileScreen()));
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings, color: Colors.black),
-              title: const Text('Settings'),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Settings()));
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.history, color: Colors.black),
-              title: const Text('History'),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => UserHistoryPage()));
-              },
-            ),
-            // Divider for separation
-            const Divider(),
-            // Help and Logout options
-            ListTile(
-              leading: const Icon(Icons.help, color: Colors.black),
-              title: const Text('About Help'),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            AboutHelpPage())); // Close the drawer
-                // Add Help Screen or About Page here if needed
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.exit_to_app, color: Colors.black),
-              title: const Text('Logout'),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) =>
-                            LoginScreen())); // Close the drawer
-                // Add logout logic here
-              },
-            ),
-          ],
-        ),
-      ),
-      body: _pages[_selectedPageIndex],
     );
   }
 }
 
-// Profile Page
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+// Profile Screen
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Profile Page', style: TextStyle(fontSize: 24)),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Profile Screen'),
+      ),
+      body: const Center(
+        child: Text(
+          'Welcome to your Profile',
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
     );
   }
 }
@@ -177,8 +96,56 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Settings Page', style: TextStyle(fontSize: 24)),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Settings Screen'),
+      ),
+      body: const Center(
+        child: Text(
+          'Settings Page',
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
+    );
+  }
+}
+
+// History Page
+class UserHistoryPage extends StatelessWidget {
+  const UserHistoryPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('History Screen'),
+      ),
+      body: const Center(
+        child: Text(
+          'History Page',
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
+    );
+  }
+}
+
+// About/Help Page
+class AboutHelpPage extends StatelessWidget {
+  const AboutHelpPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('About/Help Screen'),
+      ),
+      body: const Center(
+        child: Text(
+          'About / Help Page',
+          style: TextStyle(fontSize: 24),
+        ),
+      ),
     );
   }
 }
