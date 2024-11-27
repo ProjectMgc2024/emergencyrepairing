@@ -123,6 +123,7 @@ class HomeScreen extends StatelessWidget {
       preferredSize: Size.fromHeight(kToolbarHeight),
       child: Container(
         child: AppBar(
+          automaticallyImplyLeading: false, // This will remove the back button
           title: Text(
             'Welcome to Fuel & Fix Assist System',
             style: TextStyle(
