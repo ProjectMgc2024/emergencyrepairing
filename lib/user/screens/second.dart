@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/user/screens/home_screen.dart';
 import 'package:flutter_application_1/user/screens/navigation.dart';
 
 class VehicleRegistrationPage extends StatefulWidget {
@@ -23,7 +24,7 @@ class _VehicleRegistrationPageState extends State<VehicleRegistrationPage> {
           image: DecorationImage(
             image: AssetImage('asset/car1.jpg'), // Ensure the correct path
             fit: BoxFit.cover, // Ensures the image covers the entire screen
-            opacity: 0.2, // Optional: makes the image slightly transparent
+            opacity: 0.1, // Optional: makes the image slightly transparent
           ),
         ),
         child: Center(
@@ -127,7 +128,7 @@ class _VehicleRegistrationPageState extends State<VehicleRegistrationPage> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    Navigation()), // Replace `NextScreen` with the name of your next screen widget
+                                    HomeScreen()), // Replace `NextScreen` with the name of your next screen widget
                           );
                         }
                       },

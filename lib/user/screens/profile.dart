@@ -62,6 +62,18 @@ class _ProfileScreenState extends State<ProfileScree> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            // Go back to the previous screen when back arrow is tapped
+            Navigator.pop(context);
+          },
+        ),
+        backgroundColor: const Color.fromARGB(255, 200, 190, 190),
+
+        /// Customize the app bar color if needed
+      ),
       body: Container(
         color:
             const Color.fromARGB(255, 200, 190, 190), // Light background color

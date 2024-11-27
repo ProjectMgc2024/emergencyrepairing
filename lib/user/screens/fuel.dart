@@ -200,7 +200,7 @@ class _FuelStationListState extends State<FuelStationList> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Please select fuel and quantity first!'),
-          backgroundColor: Colors.orange,
+          backgroundColor: const Color.fromARGB(255, 197, 34, 9),
         ),
       );
     }
@@ -217,7 +217,7 @@ class _FuelStationListState extends State<FuelStationList> {
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
         ),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 232, 145, 47),
+        backgroundColor: const Color.fromARGB(255, 206, 137, 59),
       ),
       body: Column(
         children: [
@@ -306,11 +306,12 @@ class _FuelStationListState extends State<FuelStationList> {
                             // Assign a color based on the fuel type
                             switch (fuelType) {
                               case 'Petrol':
-                                chipColor = Colors.orange; // Green for Petrol
+                                chipColor = const Color.fromARGB(
+                                    255, 223, 143, 51); // Green for Petrol
                                 break;
                               case 'Diesel':
-                                chipColor =
-                                    Colors.lightBlueAccent; // Blue for Diesel
+                                chipColor = const Color.fromARGB(
+                                    255, 67, 139, 172); // Blue for Diesel
                                 break;
                               case 'CNG':
                                 chipColor = Colors.green; // Orange for CNG

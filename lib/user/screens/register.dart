@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_application_1/user/screens/home_screen.dart';
 import 'package:flutter_application_1/user/screens/login_screen.dart';
 import 'package:flutter_application_1/user/screens/navigation.dart';
 import 'package:flutter_application_1/user/screens/second.dart';
@@ -300,7 +301,7 @@ class _RegisterState extends State<Register> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => Navigation()),
+                                  builder: (context) => HomeScreen()),
                             );
                           },
                           child: Text(
