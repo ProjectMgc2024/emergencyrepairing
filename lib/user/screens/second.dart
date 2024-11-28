@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/user/screens/home_screen.dart';
-import 'package:flutter_application_1/user/screens/navigation.dart';
+
+import 'package:flutter_application_1/user/screens/otp.dart';
 
 class VehicleRegistrationPage extends StatefulWidget {
   const VehicleRegistrationPage({Key? key}) : super(key: key);
@@ -15,6 +15,8 @@ class _VehicleRegistrationPageState extends State<VehicleRegistrationPage> {
   final TextEditingController _vehicleTypeController = TextEditingController();
   final TextEditingController _registrationController = TextEditingController();
   final TextEditingController _locationController = TextEditingController();
+  final TextEditingController _licenceNumberController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +24,9 @@ class _VehicleRegistrationPageState extends State<VehicleRegistrationPage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('asset/car1.jpg'), // Ensure the correct path
+            image: AssetImage('asset/pic7.jpg'), // Ensure the correct path
             fit: BoxFit.cover, // Ensures the image covers the entire screen
-            opacity: 0.1, // Optional: makes the image slightly transparent
+            opacity: 0.3, // Optional: makes the image slightly transparent
           ),
         ),
         child: Center(
@@ -93,6 +95,25 @@ class _VehicleRegistrationPageState extends State<VehicleRegistrationPage> {
                       ),
                     ),
                     const SizedBox(height: 20),
+                    // License Number Input
+                    SizedBox(
+                      width: 400,
+                      child: TextFormField(
+                        controller: _licenceNumberController,
+                        decoration: const InputDecoration(
+                          labelText: 'License Number',
+                          border: OutlineInputBorder(),
+                          prefixIcon: Icon(Icons.credit_card), // License icon
+                        ),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter a license number';
+                          }
+                          return null;
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 20),
 
                     // Location Input
                     SizedBox(
@@ -113,6 +134,7 @@ class _VehicleRegistrationPageState extends State<VehicleRegistrationPage> {
                       ),
                     ),
                     const SizedBox(height: 20),
+                    // License Number Input (New Field)
 
                     // Register Button with normal size
                     ElevatedButton(
@@ -128,7 +150,7 @@ class _VehicleRegistrationPageState extends State<VehicleRegistrationPage> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    HomeScreen()), // Replace `NextScreen` with the name of your next screen widget
+                                    OTPPage()), // Replace `NextScreen` with the name of your next screen widget
                           );
                         }
                       },

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/user/screens/login_screen.dart';
+import 'package:flutter_application_1/user/screens/home_screen.dart';
 
 class Introscreen extends StatefulWidget {
   @override
@@ -29,7 +29,7 @@ class _IntroscreenState extends State<Introscreen> {
       // After the last page, navigate to the LoginScreen
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => LoginScreen()),
+        MaterialPageRoute(builder: (context) => HomeScreen()),
       );
     }
   }

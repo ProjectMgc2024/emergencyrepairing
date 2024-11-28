@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
           // Dark overlay to simulate the blur effect
           Positioned.fill(
             child: Container(
-              color: const Color.fromARGB(255, 57, 27, 17)
+              color: const Color.fromARGB(255, 25, 15, 12)
                   .withOpacity(0.4), // Darken the background
             ),
           ),
@@ -135,8 +135,8 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           centerTitle: true,
-          backgroundColor:
-              Colors.transparent, // Make AppBar background transparent
+          backgroundColor: const Color.fromARGB(
+              184, 28, 8, 8), // Make AppBar background transparent
           elevation: 10, // Add slight shadow to AppBar
         ),
       ),
@@ -158,8 +158,8 @@ class HomeScreen extends StatelessWidget {
                 title: 'Fuel',
                 icon: Icons.local_gas_station,
                 colors: [
-                  Color.fromARGB(197, 0, 0, 0),
-                  Color.fromARGB(255, 86, 4, 4),
+                  Color.fromARGB(197, 58, 7, 7),
+                  Color.fromARGB(255, 39, 35, 36),
                 ],
                 onTap: () {
                   Navigator.push(
@@ -173,8 +173,8 @@ class HomeScreen extends StatelessWidget {
                 title: 'Repair Services',
                 icon: Icons.build,
                 colors: [
-                  Color.fromARGB(197, 0, 0, 0),
-                  Color.fromARGB(255, 86, 4, 4),
+                  Color.fromARGB(197, 67, 3, 3),
+                  Color.fromARGB(255, 45, 39, 39),
                 ],
                 onTap: () {
                   Navigator.push(
@@ -195,8 +195,8 @@ class HomeScreen extends StatelessWidget {
                 title: 'Tow Services',
                 icon: Icons.drive_eta,
                 colors: [
-                  Color.fromARGB(197, 0, 0, 0),
-                  Color.fromARGB(255, 86, 4, 4),
+                  Color.fromARGB(197, 58, 7, 7),
+                  Color.fromARGB(255, 39, 35, 36),
                 ],
                 onTap: () {
                   Navigator.push(

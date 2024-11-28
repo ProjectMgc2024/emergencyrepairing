@@ -33,7 +33,7 @@ class _VehicleRepairCategoriesState extends State<VehicleRepairCategories> {
         title: Text('Vehicle Repair Services'),
         centerTitle: true,
         elevation: 10,
-        backgroundColor: const Color.fromARGB(255, 234, 88, 44),
+        backgroundColor: const Color.fromARGB(255, 232, 145, 47),
         actions: [
           // Show All button with text and arrow icon
           TextButton.icon(
@@ -255,6 +255,48 @@ class WorkshopListScreen extends StatelessWidget {
                           style: TextStyle(fontSize: 16),
                         ),
                         SizedBox(height: 15),
+                        // Confirm and Payment button
+                        ElevatedButton(
+                          onPressed: () {
+                            // Show payment options dialog
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Select Payment Method'),
+                                  content: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      ListTile(
+                                        title: Text('Credit/Debit Card'),
+                                        onTap: () {
+                                          Navigator.of(context).pop();
+                                          _showConfirmation(context);
+                                        },
+                                      ),
+                                      ListTile(
+                                        title: Text('Cash'),
+                                        onTap: () {
+                                          Navigator.of(context).pop();
+                                          _showConfirmation(context);
+                                        },
+                                      ),
+                                      ListTile(
+                                        title: Text('PayPal'),
+                                        onTap: () {
+                                          Navigator.of(context).pop();
+                                          _showConfirmation(context);
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
+                          },
+                          child: Text("Confirm & Pay"),
+                          style: ElevatedButton.styleFrom(),
+                        ),
                       ],
                     ),
                   ),
@@ -263,10 +305,32 @@ class WorkshopListScreen extends StatelessWidget {
             ),
     );
   }
+
+  // Show a confirmation message when payment is selected
+  void _showConfirmation(BuildContext context) {
+    // Show a confirmation dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Payment Confirmed'),
+          content: Text('You has been successfully processed!'),
+          actions: [
+            // Close button for the dialog
+            TextButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop(); // Close the dialog
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 }
 
 class ShowAllWorkshopsScreen extends StatelessWidget {
-  // List of all workshops from different locations
   final List<Map<String, dynamic>> allWorkshops = [
     {
       'name': 'AutoCare Service Center',
@@ -320,7 +384,7 @@ class ShowAllWorkshopsScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('All Workshops'),
         centerTitle: true,
-        backgroundColor: const Color.fromARGB(255, 234, 88, 44),
+        backgroundColor: const Color.fromARGB(255, 232, 145, 47),
       ),
       body: ListView.builder(
         itemCount: allWorkshops.length,
